@@ -38,3 +38,13 @@ Berikut adalah penjelasan mengenai setiap file dan folder dalam struktur yang An
 
 ## Demo (Micro-frontend sederhana)
 
+Berikut ini terdapat dua folder micro-frontend yaitu client dan host : 
+
+- Host  
+
+![host](./assets/host.png)
+
+
+- Client
+
+![client](./assets/client.png)
