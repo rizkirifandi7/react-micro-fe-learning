@@ -19,6 +19,28 @@ Kemudian ini merupakan beberapa file dan folder bawaan dari CLI micro-frontend :
 
  ![bawaan](./assets/bawaan.png)
 
+
+Setelah itu, lakukan instalasi dependensi dengan perintah berikut : 
+
+  ```bash
+    npm install
+  ```
+  atau
+  ```bash
+    yarn install
+  ```
+Setelah itu, proyek micro-frontend siap untuk digunakan dan untuk menjalankannya dengan perintah berikut: 
+
+  ```bash
+    npm run start
+  ```
+  atau
+  ```bash
+    yarn start
+  ```
+
+## Struktur Proyek
+
 Berikut adalah penjelasan mengenai setiap file dan folder dalam struktur yang Anda berikan:
 
  - node_modules: Ini adalah folder yang biasanya dihasilkan oleh manajer paket (seperti npm atau yarn) setelah  menginstal semua dependensi proyek.
