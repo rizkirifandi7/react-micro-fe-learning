@@ -67,7 +67,7 @@ Pada tampilan app-host ini, pembuat ingin melakukan import atau expose program c
 Ketiga, untuk dapat menerima hasil import dari program host maka client melakukan configurasi pada webpack dengan melakukan remotes terdapat host : 
 
 
-![webpack-client](./assets/webpack-client.png)
+![webpack-client](./assets/wepack-client.png)
 
 
 Keempat, untuk dapat menampilkan ke program app-client, maka client harus melakukam import sebagai berikut : 
