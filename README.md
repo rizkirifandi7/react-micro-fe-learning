@@ -15,10 +15,6 @@ Berikut ini tampilan dari CLI tersebut :
 
  ![instalasi](./assets/instalasi.png)
 
-Kemudian ini merupakan beberapa file dan folder bawaan dari CLI micro-frontend : 
-
- ![bawaan](./assets/bawaan.png)
-
 
 Setelah itu, lakukan instalasi dependensi dengan perintah berikut : 
 
@@ -38,6 +34,11 @@ Setelah itu, proyek micro-frontend siap untuk digunakan dan untuk menjalankannya
   ```bash
     yarn start
   ```
+
+
+Kemudian ini merupakan beberapa file dan folder bawaan dari CLI micro-frontend : 
+
+ ![bawaan](./assets/bawaan.png)
 
 ## Struktur Proyek
 
