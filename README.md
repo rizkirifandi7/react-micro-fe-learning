@@ -34,3 +34,7 @@ Berikut adalah penjelasan mengenai setiap file dan folder dalam struktur yang An
  - postcss.config.js: File konfigurasi untuk PostCSS, alat yang digunakan untuk mengelola transformasi CSS. Ini memungkinkan Anda menggunakan fitur-fitur seperti autoprefixer dan minifikasi CSS.
  - tailwind.config.js: File konfigurasi untuk Tailwind CSS.
  - webpack.config.js: File konfigurasi untuk Webpack, alat yang digunakan untuk menggabungkan dan mengemas semua file sumber menjadi satu atau beberapa file output (misalnya bundle.js). Ini juga mengatur bagaimana aset seperti gambar dan font dikelola dan dimuat oleh aplikasi.
+
+
+## Demo (Micro-frontend sederhana)
+
