@@ -38,7 +38,9 @@ Berikut adalah penjelasan mengenai setiap file dan folder dalam struktur yang An
 
 ## Demo (Micro-frontend sederhana)
 
-Berikut ini terdapat dua folder micro-frontend yaitu client dan host : 
+Ini adalah program web sederharna input nama, membuat sebuah input yang nantinya akan langsung ditampilkan setiap pengguna melakukan input.
+
+Pertama, berikut ini terdapat dua folder micro-frontend yaitu client dan host : 
 
 - Host  
 
@@ -48,3 +50,33 @@ Berikut ini terdapat dua folder micro-frontend yaitu client dan host :
 - Client
 
 ![client](./assets/client.png)
+
+
+Kedua, ini adalah tampilan dari app-host : 
+
+
+![app-host](./assets/app-host.png)
+
+
+Pada tampilan app-host ini, pembuat ingin melakukan import atau expose program component dari app-host ini kepada app-client, maka diperlukan sebuah configurasi dibagian webpack program host untuk dapat dilakukan import. sebagai berikut : 
+
+
+![webpack-host](./assets/webpack-host.png)
+
+
+Ketiga, untuk dapat menerima hasil import dari program host maka client melakukan configurasi pada webpack dengan melakukan remotes terdapat host : 
+
+
+![webpack-client](./assets/webpack-client.png)
+
+
+Keempat, untuk dapat menampilkan ke program app-client, maka client harus melakukam import sebagai berikut : 
+
+
+![code-client](./assets/code-client.png)
+
+
+Kelima, untuk dapat melihat hasilnya dapat dilakukan CLI : ```npm run start```
+
+
+![app-client](./assets/app-client.png)
