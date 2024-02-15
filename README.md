@@ -1,6 +1,6 @@
 ## Belajar Micro-frontend, webpack, dan module federation
 
-Pada Program ini merupakan program pembelaharan dari micro-frontend, webpack, dan module federation
+Pada program ini merupakan program pembelajaran dari micro-frontend, webpack, dan module federation menggunakan react
 
 ## Prasyarat
 
