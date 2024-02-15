@@ -141,12 +141,12 @@ Berikut penjelasan singkat tentang setiap bagian dari konfigurasi webpack:
 
 2. ModuleFederationPlugin: Ini adalah plugin dari webpack yang memungkinkan aplikasi untuk menggunakan modul-modul dari aplikasi lain, baik yang berjalan pada domain yang sama maupun domain yang berbeda. Dalam konfigurasi ini:
 
--- name: Menentukan nama host modul.
--- filename: Nama file untuk remote entry point.
--- remotes: Daftar modul yang akan dimuat secara remote.
--- exposes: Menentukan modul mana yang akan di-expose oleh host.
--- shared: Menentukan modul mana yang akan dibagikan bersama antara host dan remote.
--- Dotenv: Plugin ini memungkinkan penggunaan variabel lingkungan yang didefinisikan dalam file .env dalam konfigurasi webpack. Dalam konfigurasi ini, plugin digunakan untuk mengimpor variabel lingkungan dari file .env ke dalam konfigurasi webpack.
+- name: Menentukan nama host modul.
+- filename: Nama file untuk remote entry point.
+- remotes: Daftar modul yang akan dimuat secara remote.
+- exposes: Menentukan modul mana yang akan di-expose oleh host.
+- shared: Menentukan modul mana yang akan dibagikan bersama antara host dan remote.
+- Dotenv: Plugin ini memungkinkan penggunaan variabel lingkungan yang didefinisikan dalam file .env dalam konfigurasi webpack. Dalam konfigurasi ini, plugin digunakan untuk mengimpor variabel lingkungan dari file .env ke dalam konfigurasi webpack.
 
 3. Dependencies (deps): Objek ini berisi daftar dependensi dari proyek yang didefinisikan dalam file package.json. Deps digunakan dalam konfigurasi ModuleFederationPlugin untuk menentukan versi yang dibutuhkan dari dependensi bersama seperti React dan ReactDOM, serta menandai modul-modul tersebut sebagai singleton untuk memastikan bahwa hanya ada satu salinan dari setiap modul di seluruh aplikasi.
 
