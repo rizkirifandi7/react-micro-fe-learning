@@ -62,6 +62,95 @@ Berikut adalah penjelasan mengenai setiap file dan folder dalam struktur yang An
  - tailwind.config.js: File konfigurasi untuk Tailwind CSS.
  - webpack.config.js: File konfigurasi untuk Webpack, alat yang digunakan untuk menggabungkan dan mengemas semua file sumber menjadi satu atau beberapa file output (misalnya bundle.js). Ini juga mengatur bagaimana aset seperti gambar dan font dikelola dan dimuat oleh aplikasi.
 
+## Penjelasan Webpack 
+
+```bash
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const Dotenv = require("dotenv-webpack");
+const deps = require("./package.json").dependencies;
+module.exports = (_, argv) => ({
+	output: {
+		publicPath: "http://localhost:8080/",
+	},
+
+	resolve: {
+		extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
+	},
+
+	devServer: {
+		port: 8080,
+		historyApiFallback: true,
+	},
+
+	module: {
+		rules: [
+			{
+				test: /\.m?js/,
+				type: "javascript/auto",
+				resolve: {
+					fullySpecified: false,
+				},
+			},
+			{
+				test: /\.(css|s[ac]ss)$/i,
+				use: ["style-loader", "css-loader", "postcss-loader"],
+			},
+			{
+				test: /\.(ts|tsx|js|jsx)$/,
+				exclude: /node_modules/,
+				use: {
+					loader: "babel-loader",
+				},
+			},
+		],
+	},
+
+	plugins: [
+		new ModuleFederationPlugin({
+			name: "micro_host",
+			filename: "remoteEntry.js",
+			remotes: {},
+			exposes: {
+				"./Content": "./src/components/Content",
+			},
+			shared: {
+				...deps,
+				react: {
+					singleton: true,
+					requiredVersion: deps.react,
+				},
+				"react-dom": {
+					singleton: true,
+					requiredVersion: deps["react-dom"],
+				},
+			},
+		}),
+		new HtmlWebPackPlugin({
+			template: "./src/index.html",
+		}),
+		new Dotenv(),
+	],
+});
+
+```
+
+Berikut penjelasan singkat tentang setiap bagian dari konfigurasi webpack:
+
+1. HtmlWebPackPlugin: Plugin ini digunakan untuk menghasilkan file HTML yang digunakan sebagai template dalam proyek webpack. Dalam konfigurasi ini, plugin digunakan untuk menghasilkan file HTML dari template yang ada di ./src/index.html.
+
+2. ModuleFederationPlugin: Ini adalah plugin dari webpack yang memungkinkan aplikasi untuk menggunakan modul-modul dari aplikasi lain, baik yang berjalan pada domain yang sama maupun domain yang berbeda. Dalam konfigurasi ini:
+
+-- name: Menentukan nama host modul.
+-- filename: Nama file untuk remote entry point.
+-- remotes: Daftar modul yang akan dimuat secara remote.
+-- exposes: Menentukan modul mana yang akan di-expose oleh host.
+-- shared: Menentukan modul mana yang akan dibagikan bersama antara host dan remote.
+-- Dotenv: Plugin ini memungkinkan penggunaan variabel lingkungan yang didefinisikan dalam file .env dalam konfigurasi webpack. Dalam konfigurasi ini, plugin digunakan untuk mengimpor variabel lingkungan dari file .env ke dalam konfigurasi webpack.
+
+3. Dependencies (deps): Objek ini berisi daftar dependensi dari proyek yang didefinisikan dalam file package.json. Deps digunakan dalam konfigurasi ModuleFederationPlugin untuk menentukan versi yang dibutuhkan dari dependensi bersama seperti React dan ReactDOM, serta menandai modul-modul tersebut sebagai singleton untuk memastikan bahwa hanya ada satu salinan dari setiap modul di seluruh aplikasi.
+
+
 
 ## Demo (Micro-frontend sederhana)
 
